@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./output.css" rel="stylesheet">
+  <link rel="icon" href="../imgs/logo.png">
   <title>Study Planner</title>
 </head>
-<body class="bg-slate-50">
+<body class="bg-cover bg-center h-screen" style="background-image: url('../imgs/background.png');background-size: cover;">
   <nav class="grid grid-cols-3 p-4 items-center max-md:grid-cols-2 ">
-    <div class="text-center flex justify-center">
+    <div class="text-center flex justify-center items-center">
         <img class="w-20 rounded-4xl" src="../imgs/logo.png" alt="logo" >
         <p>StudyFlow</p>
     </div>
@@ -23,9 +24,14 @@
     </div> 
   </nav>
 
-    <section class="text-center flex flex-col gap-2 pt-20 justify-center items-center">
-    <p class="border-2 w-45 mx-auto rounded-2xl text-xs ">🤓Plan Smarter. Study Better.</p>
+    <section class="text-center grid grid-cols-2 max-sm:grid-cols-1">
+      <div class="flex items-center flex-col justify-center">
+         <p class="border-2 w-45 mx-auto rounded-2xl text-xs ">🤓Plan Smarter. Study Better.</p>
         <h1 class="font-semibold tracking-wider text-2xl lg:text-5xl  max-sm:mx-2">Turn deadlines into achievable plans <br> with  <span class="font-bold">AI-guided learning.</span></h1>
+      </div>
+      <div class="flex justify-center max-sm:hidden" >
+        <img class="mt-5 w-32 md:w-64 lg:w-96 h-130 rounded-2xl" src="../imgs/landingpageIMG.png" alt="">
+      </div>
     </section>
     
 
