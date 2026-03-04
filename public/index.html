@@ -7,33 +7,171 @@
   <link rel="icon" href="../imgs/logo.png">
   <title>Study Planner</title>
 </head>
-<body class="bg-cover bg-center h-screen" style="background-image: url('../imgs/background.png');background-size: cover;">
-  <nav class="grid grid-cols-3 p-4 items-center max-md:grid-cols-2 ">
-    <div class="text-center flex justify-center items-center">
-        <img class="w-20 rounded-4xl" src="../imgs/logo.png" alt="logo" >
-        <p>StudyFlow</p>
-    </div>
-    <div class="flex justify-around max-md:hidden">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Feature</a>
-        <a href="#">How it works</a>
-    </div>
-    <div class="flex justify-center">
-        <button class=" bg-indigo-600 text-white px-3 pb-1 pt-1 rounded-2xl hover:bg-indigo-700 cursor-pointer">Get Started</button>
-    </div> 
-  </nav>
+<body class="relative min-h-screen ">
 
-    <section class="text-center grid grid-cols-2 max-sm:grid-cols-1">
-      <div class="flex items-center flex-col justify-center">
-         <p class="border-2 w-45 mx-auto rounded-2xl text-xs ">🤓Plan Smarter. Study Better.</p>
-        <h1 class="font-semibold tracking-wider text-2xl lg:text-5xl  max-sm:mx-2">Turn deadlines into achievable plans <br> with  <span class="font-bold">AI-guided learning.</span></h1>
+  <!-- BACKGROUND -->
+  <div 
+    class="absolute inset-0 bg-cover bg-center"
+    style="background-image: url('../imgs/background.png');">
+  </div>
+
+  <!-- BACKGROUND OVERLAY -->
+  <div class="absolute inset-0 bg-white/70 backdrop-blur-sm"></div>
+
+  <!-- CONTENT WRAPPER -->
+  <div class="relative z-10">
+
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-10 grid grid-cols-3 items-center px-6 py-4 bg-transparent backdrop-blur-md max-md:grid-cols-2">
+      
+      <!-- LOGO -->
+      <div class="flex items-center gap-2">
+        <img class="w-12 rounded-xl" src="../imgs/logo.png" alt="logo">
+        <p class="font-semibold tracking-wide">StudyFlow</p>
       </div>
-      <div class="flex justify-center max-sm:hidden" >
-        <img class="mt-5 w-32 md:w-64 lg:w-96 h-130 rounded-2xl" src="../imgs/landingpageIMG.png" alt="">
+
+      <!-- DESKTOP LINKS -->
+      <div class="flex justify-center gap-6 max-md:hidden text-sm font-medium">
+        <a href="#" class="hover:text-indigo-600">Home</a>
+        <a href="#" class="hover:text-indigo-600">About</a>
+        <a href="#Features" class="hover:text-indigo-600">Feature</a>
+        <a href="#" class="hover:text-indigo-600">How it works</a>
       </div>
+
+      <!-- CTA / HAMBURGER -->
+      <div class="flex justify-end items-center gap-4">
+        <button class="bg-indigo-600 text-white px-4 py-2 rounded-xl hover:bg-indigo-700 transition max-sm:hidden">
+          Get Started
+        </button>
+        <button id="HamMenu" class="sm:hidden text-2xl z-30">☰</button>
+      </div>
+
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div id="MobileNav"
+      class="hidden fixed -top-3 pt-30 right-0 h-screen w-64 bg-white/80 backdrop-blur-lg p-6 flex flex-col gap-4 z-1">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Feature</a>
+      <a href="#">How it works</a>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="grid grid-cols-2 max-md:grid-cols-1 min-h-[calc(100vh-80px)] px-6">
+
+      <!-- TEXT -->
+      <div class="flex max-lg:items-center lg:pt-10 justify-center">
+        <div class="bg-transparent backdrop-blur-md p-8 rounded-3xl max-w-xl text-center">
+
+          <p class="inline-block border border-indigo-200 px-4 py-1 rounded-full text-xs mb-4">
+            🤓 Plan Smarter. Study Better.
+          </p>
+
+          <h1 class="font-semibold tracking-wide text-3xl lg:text-5xl leading-tight">
+            Turn deadlines into <br>
+            achievable plans <br>
+            with <span class="font-bold text-indigo-600">AI-guided learning.</span>
+          </h1>
+
+          <!-- TRUST HINT -->
+          <p class="mt-4 text-sm text-gray-600">
+            Trusted by students preparing smarter every day
+          </p>
+
+          <!-- CTA -->
+          <button class="mt-6 bg-indigo-600 text-white px-6 py-3 rounded-xl hover:bg-indigo-700 transition">
+            Start Planning Free
+          </button>
+
+        </div>
+      </div>
+
+      <!-- IMAGE -->
+      <div class="flex items-center justify-center max-md:hidden">
+        <img 
+          class="w-[420px] rounded-3xl shadow-xl"
+          src="../imgs/landingpageIMG.png"
+          alt="Study dashboard">
+      </div>
+
     </section>
-    
+  
+    <!-- Features -->
+  <section id="Features" class="px-6 py-24 bg-transparent">
 
+  <h2 class="text-center text-3xl lg:text-4xl font-semibold mb-12">
+    Everything you need to <span class="text-indigo-600">study smarter</span>
+  </h2>
+
+  <div class="grid grid-cols-3 gap-8 max-md:grid-cols-1 max-w-6xl mx-auto">
+
+    <!-- Feature 1 -->
+    <div class="bg-white/70 backdrop-blur-md p-6 rounded-2xl shadow-md text-center">
+      <div class="text-3xl mb-4">🧠</div>
+      <h3 class="font-semibold text-lg mb-2">Smart Study Plans</h3>
+      <p class="text-sm text-gray-600">
+        AI turns deadlines into clear daily tasks you can actually finish.
+      </p>
+    </div>
+
+    <!-- Feature 2 -->
+    <div class="bg-white/70 backdrop-blur-md p-6 rounded-2xl shadow-md text-center">
+      <div class="text-3xl mb-4">⏱️</div>
+      <h3 class="font-semibold text-lg mb-2">Focus & Time Blocking</h3>
+      <p class="text-sm text-gray-600">
+        Automatically schedule deep-focus sessions without burnout.
+      </p>
+    </div>
+
+    <!-- Feature 3 -->
+    <div class="bg-white/70 backdrop-blur-md p-6 rounded-2xl shadow-md text-center">
+      <div class="text-3xl mb-4">📊</div>
+      <h3 class="font-semibold text-lg mb-2">Progress Tracking</h3>
+      <p class="text-sm text-gray-600">
+        See what you’ve completed and what needs attention next.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="how" class="px-6 py-24 bg-white/40 backdrop-blur-sm">
+
+  <h2 class="text-center text-3xl lg:text-4xl font-semibold mb-16">
+    How StudyFlow works
+  </h2>
+
+  <div class="max-w-5xl mx-auto grid grid-cols-3 gap-10 max-md:grid-cols-1 text-center">
+
+    <div>
+      <div class="text-indigo-600 text-4xl font-bold mb-4">1</div>
+      <h3 class="font-semibold mb-2">Add your deadlines</h3>
+      <p class="text-sm text-gray-600">
+        Enter exams, projects, and important dates.
+      </p>
+    </div>
+
+    <div>
+      <div class="text-indigo-600 text-4xl font-bold mb-4">2</div>
+      <h3 class="font-semibold mb-2">AI builds your plan</h3>
+      <p class="text-sm text-gray-600">
+        StudyFlow creates a balanced daily schedule.
+      </p>
+    </div>
+
+    <div>
+      <div class="text-indigo-600 text-4xl font-bold mb-4">3</div>
+      <h3 class="font-semibold mb-2">Study with clarity</h3>
+      <p class="text-sm text-gray-600">
+        Focus on what matters today — nothing more.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+  </div>
+
+  <script src="function.js"></script>
 </body>
-</html>
