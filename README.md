@@ -59,3 +59,13 @@ To run the project in your local environment, follow these steps:
 3. Install dependencies:
    ```bash
    npm install
+4. Start the development server:
+   ```bash
+   npm run dev
+5.Open your browser and follow the local URL shown in the terminal
+
+---
+
+##📌 Notes
+This project is a learning project, not a production-ready application.
+The main goal is to practice Tailwind CSS and frontend layout design.
