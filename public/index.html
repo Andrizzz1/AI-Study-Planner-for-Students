@@ -33,9 +33,9 @@
       <!-- DESKTOP LINKS -->
       <div class="flex justify-center gap-6 max-md:hidden text-sm font-medium">
         <a href="#" class="hover:text-indigo-600">Home</a>
-        <a href="#" class="hover:text-indigo-600">About</a>
+        <a href="#about" class="hover:text-indigo-600">About</a>
         <a href="#Features" class="hover:text-indigo-600">Feature</a>
-        <a href="#" class="hover:text-indigo-600">How it works</a>
+        <a href="#howItWorks" class="hover:text-indigo-600">How it works</a>
       </div>
 
       <!-- CTA / HAMBURGER -->
@@ -52,16 +52,16 @@
     <div id="MobileNav"
       class="hidden fixed -top-3 pt-30 right-0 h-screen w-64 bg-white/80 backdrop-blur-lg p-6 flex flex-col gap-4 z-1">
       <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Feature</a>
-      <a href="#">How it works</a>
+      <a href="#about">About</a>
+      <a href="#Features">Feature</a>
+      <a href="#howItWorks">How it works</a>
     </div>
 
     <!-- HERO SECTION -->
     <section class="grid grid-cols-2 max-md:grid-cols-1 min-h-[calc(100vh-80px)] px-6">
 
       <!-- TEXT -->
-      <div class="flex max-lg:items-center lg:pt-10 justify-center">
+      <div class="flex max-xl:items-center lg:pt-10 justify-center">
         <div class="bg-transparent backdrop-blur-md p-8 rounded-3xl max-w-xl text-center">
 
           <p class="inline-block border border-indigo-200 px-4 py-1 rounded-full text-xs mb-4">
@@ -90,7 +90,7 @@
       <!-- IMAGE -->
       <div class="flex items-center justify-center max-md:hidden">
         <img 
-          class="w-[420px] rounded-3xl shadow-xl"
+          class="w-[420px] rounded-3xl shadow-xl h-150"
           src="../imgs/landingpageIMG.png"
           alt="Study dashboard">
       </div>
@@ -136,41 +136,89 @@
   </div>
 </section>
 
-<section id="how" class="px-6 py-24 bg-white/40 backdrop-blur-sm">
+<section id="howItWorks" class="px-6 py-24 bg-white/40 backdrop-blur-sm">
 
-  <h2 class="text-center text-3xl lg:text-4xl font-semibold mb-16">
+  <h2 class="text-center text-3xl lg:text-4xl font-semibold mb-5">
     How StudyFlow works
   </h2>
+  <p class="text-center pb-16 text-gray-600">StudyFlow turns overwhelming deadlines into clear, manageable study plans. <br class="max-md:hidden"> Just add your tasks, let the system organize them, and focus on studying one step at a time.</p>
+ <!-- Steps container -->
+<div class="max-w-5xl mx-auto grid grid-cols-3 gap-10 max-md:grid-cols-1 text-center relative items-center">
 
-  <div class="max-w-5xl mx-auto grid grid-cols-3 gap-10 max-md:grid-cols-1 text-center">
-
-    <div>
-      <div class="text-indigo-600 text-4xl font-bold mb-4">1</div>
-      <h3 class="font-semibold mb-2">Add your deadlines</h3>
-      <p class="text-sm text-gray-600">
-        Enter exams, projects, and important dates.
-      </p>
-    </div>
-
-    <div>
-      <div class="text-indigo-600 text-4xl font-bold mb-4">2</div>
-      <h3 class="font-semibold mb-2">AI builds your plan</h3>
-      <p class="text-sm text-gray-600">
-        StudyFlow creates a balanced daily schedule.
-      </p>
-    </div>
-
-    <div>
-      <div class="text-indigo-600 text-4xl font-bold mb-4">3</div>
-      <h3 class="font-semibold mb-2">Study with clarity</h3>
-      <p class="text-sm text-gray-600">
-        Focus on what matters today — nothing more.
-      </p>
-    </div>
-
+  <!-- STEP 1 -->
+  <div class="relative">
+    <div class="text-indigo-600 text-4xl font-bold mb-4">1</div>
+    <h3 class="font-semibold mb-2">Add your deadlines</h3>
+    <p class="text-sm text-gray-600">
+      Enter exams, projects, and important dates.
+    </p>
   </div>
+
+  <!-- CURVED CONNECTOR -->
+  <svg
+    class="absolute top-3 left-1/4 -translate-x-1/4 w-[240px] lg:w-[290px] max-md:hidden"
+    viewBox="0 0 240 40"
+    fill="none"
+  >
+    <path
+      d="M0 20 C90 0, 160 40, 240 20"
+      stroke="#9CA3AF"
+      stroke-width="2"
+      stroke-dasharray="6 6"
+      fill="transparent"
+    />
+  </svg>
+
+  <!-- STEP 2 -->
+  <div>
+    <div class="text-indigo-600 text-4xl font-bold mb-4">2</div>
+    <h3 class="font-semibold mb-2">AI builds your plan</h3>
+    <p class="text-sm text-gray-600">
+      StudyFlow creates a balanced daily schedule.
+    </p>
+  </div>
+
+
+  <svg
+    class="absolute top-3 left-3/4 -translate-x-3/4 w-[240px] lg:w-[290px] max-md:hidden"
+    viewBox="0 0 240 40"
+    fill="none"
+  >
+    <path
+      d="M0 20 C90 0, 160 40, 240 20"
+      stroke="#9CA3AF"
+      stroke-width="2"
+      stroke-dasharray="6 6"
+      fill="transparent"
+    />
+  </svg>
+  <!-- STEP 3 -->
+  <div>
+    <div class="text-indigo-600 text-4xl font-bold mb-4">3</div>
+    <h3 class="font-semibold mb-2">Study with clarity</h3>
+    <p class="text-sm text-gray-600">
+      Focus on what matters today — nothing more.
+    </p>
+  </div>
+
+</div>
 </section>
 
+<section id="about" class="px-6 py-24 shadow-xl">
+
+  <div class="max-w-4xl mx-auto text-center bg-white/70 backdrop-blur-md p-10 rounded-3xl">
+
+    <h2 class="text-3xl font-semibold mb-4">About StudyFlow</h2>
+
+    <p class="text-gray-700 leading-relaxed">
+      StudyFlow was built to help students stop cramming and start studying
+      with confidence. By combining AI planning and proven study techniques,
+      we help turn stress into structure.
+    </p>
+
+  </div>
+
+</section>
   </div>
 
   <script src="function.js"></script>
