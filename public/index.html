@@ -15,6 +15,8 @@
     style="background-image: url('../imgs/background.png');">
   </div>
 
+
+ 
   <!-- BACKGROUND OVERLAY -->
   <div class="absolute inset-0 bg-white/70 backdrop-blur-sm"></div>
 
@@ -58,21 +60,31 @@
     </div>
 
     <!-- HERO SECTION -->
-    <section class="grid grid-cols-2 max-md:grid-cols-1 min-h-[calc(100vh-80px)] px-6">
+    <section class="flex max-xl:items-center lg:pt-10 justify-center pb-10 ">
+       <!-- Chatbot support -->
+      <div id="Chatbot" class="fixed text-center bottom-0 right-6 md:w-100 z-20 bg-indigo-600 text-white rounded-t-2xl cursor-pointer hover:bg-indigo-700 ">
+        <p id="ChatbotText" class="max-md:hidden">Open Chatbot</p>
+        <div id="Openchatbot" class="relative h-100 bg-indigo-50 hidden ">
+          
+          <div class=" bottom-0 absolute  w-full ml-1 left-0 flex ">
+              <input id="UserMessage" class="w-[80%] bg-white text-black" type="text" placeholder="hello.....">
+              <button id="Sendbtn" class="bg-indigo-600 text-white px-5 cursor-pointer">Send</button>
+          </div>
+          
+        </div>
+      
+      </div>
+        <div class="bg-transparent backdrop-blur-md p-8 rounded-3xl max-w-xl text-center ">
 
-      <!-- TEXT -->
-      <div class="flex max-xl:items-center lg:pt-10 justify-center">
-        <div class="bg-transparent backdrop-blur-md p-8 rounded-3xl max-w-xl text-center">
-
-          <p class="inline-block border border-indigo-200 px-4 py-1 rounded-full text-xs mb-4">
+          <p class="inline-block border border-indigo-200 px-4 py-1 rounded-full text-xs mb-4 ">
             🤓 Plan Smarter. Study Better.
           </p>
 
-          <h1 class="font-semibold tracking-wide text-3xl lg:text-5xl leading-tight">
-            Turn deadlines into <br>
-            achievable plans <br>
-            with <span class="font-bold text-indigo-600">AI-guided learning.</span>
-          </h1>
+          <h1 class="font-semibold text-3xl lg:text-5xl leading-tight tracking-widest">
+              Turn deadlines into <br>
+              achievable plans <br>
+          with <span class="font-bold text-indigo-600">AI-guided learning.</span>
+        </h1>
 
           <!-- TRUST HINT -->
           <p class="mt-4 text-sm text-gray-600">
@@ -83,17 +95,9 @@
           <button class="mt-6 bg-indigo-600 text-white px-6 py-3 rounded-xl hover:bg-indigo-700 transition">
             Start Planning Free
           </button>
-
-        </div>
       </div>
 
-      <!-- IMAGE -->
-      <div class="flex items-center justify-center max-md:hidden">
-        <img 
-          class="w-[420px] rounded-3xl shadow-xl h-150"
-          src="../imgs/landingpageIMG.png"
-          alt="Study dashboard">
-      </div>
+
 
     </section>
   
