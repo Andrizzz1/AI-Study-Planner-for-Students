@@ -11,22 +11,19 @@ async function sendToAI(msg) {
     try {
         const response = await fetch("/api/chat", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ message: msg })
         });
 
-        // ADD THESE DEBUG LINES
-        console.log("Status:", response.status);
         const data = await response.json();
-        console.log("Full response:", data);  // see exactly what's coming back
+        console.log("Full response:", JSON.stringify(data, null, 2)); // 👈 check this
 
-        if (!response.ok) {
-            return `API Error: ${data.error?.message || response.status}`;
+        // Handle error from Groq
+        if (data.error) {
+            return `Error: ${data.error.message}`;
         }
 
-        return data.choices[0].message.content;
+        return data.choices[0].message.content; // This should work for Groq
 
     } catch (error) {
         console.error("Fetch Error:", error);
@@ -61,7 +58,7 @@ SendMess.addEventListener('click', async ()=>{
         newDiv.className = "flex items-center gap-0.5 mt-0.5 justify-end";
         newDiv.innerHTML = `
         <p class="text-left bg-indigo-600 inline-block mt-0.5 px-1.5 rounded-md">${lastMessage}</p>
-        <img src="../imgs/UserProfile.jpg" alt="UserProfile" class="w-8 rounded-2xl">
+        <img src="/imgs/UserProfile.jpg" alt="UserProfile" class="w-8 rounded-2xl">
         `;
         OpenChatbot.appendChild(newDiv)
 
@@ -70,7 +67,7 @@ SendMess.addEventListener('click', async ()=>{
         botDiv.className = "flex items-center gap-0.5 mt-0.5 justify-start";
 
         botDiv.innerHTML = `
-        <img src="../imgs/BotProfile.png" class="w-8 rounded-2xl">
+        <img src="/imgs/BotProfile.png" class="w-8 rounded-2xl">
         <p class="bg-indigo-600  inline-block px-1.5 rounded-md">${aiReply}</p>
         `;
 
