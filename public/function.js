@@ -6,6 +6,36 @@ const ChatbotText = document.getElementById("ChatbotText")
 const User = document.getElementById("UserMessage")
 const SendMess = document.getElementById("Sendbtn")
 
+
+async function sendToAI(msg) {
+    try {
+        const response = await fetch("/api/chat", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ message: msg })
+        });
+
+        // ADD THESE DEBUG LINES
+        console.log("Status:", response.status);
+        const data = await response.json();
+        console.log("Full response:", data);  // see exactly what's coming back
+
+        if (!response.ok) {
+            return `API Error: ${data.error?.message || response.status}`;
+        }
+
+        return data.choices[0].message.content;
+
+    } catch (error) {
+        console.error("Fetch Error:", error);
+        return "Error contacting AI";
+    }
+}
+
+
+
 ChatbotText.addEventListener('click',()=>{
     OpenChatbot.classList.toggle("hidden")
     if (ChatbotText.textContent == "Open Chatbot"){
@@ -22,10 +52,29 @@ HamMenuBtn.addEventListener("click",()=>{
 })
 
 UserMsgList = []
-SendMess.addEventListener('click',()=>{
+SendMess.addEventListener('click', async ()=>{
     const msg = User.value.trim();
     if (msg !== ""){
         UserMsgList.push(msg)
+        const lastMessage = UserMsgList[UserMsgList.length - 1]
+        const newDiv = document.createElement('div')
+        newDiv.className = "flex items-center gap-0.5 mt-0.5 justify-end";
+        newDiv.innerHTML = `
+        <p class="text-left bg-indigo-600 inline-block mt-0.5 px-1.5 rounded-md">${lastMessage}</p>
+        <img src="../imgs/UserProfile.jpg" alt="UserProfile" class="w-8 rounded-2xl">
+        `;
+        OpenChatbot.appendChild(newDiv)
+
+        const aiReply = await sendToAI(lastMessage);
+        const botDiv = document.createElement('div');
+        botDiv.className = "flex items-center gap-0.5 mt-0.5 justify-start";
+
+        botDiv.innerHTML = `
+        <img src="../imgs/BotProfile.png" class="w-8 rounded-2xl">
+        <p class="bg-indigo-600  inline-block px-1.5 rounded-md">${aiReply}</p>
+        `;
+
+        OpenChatbot.appendChild(botDiv);
     }else{
         alert("Empty input")
     }
