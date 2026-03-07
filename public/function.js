@@ -60,7 +60,7 @@ SendMess.addEventListener('click', async ()=>{
         <p class="text-left bg-indigo-600 inline-block mt-0.5 px-1.5 rounded-md">${lastMessage}</p>
         <img src="/imgs/UserProfile.jpg" alt="UserProfile" class="w-8 rounded-2xl">
         `;
-        OpenChatbot.querySelector('div').appendChild(newDiv);
+        OpenChatbot.querySelector('div').appendChild(newDiv)
 
         const aiReply = await sendToAI(lastMessage);
         const botDiv = document.createElement('div');

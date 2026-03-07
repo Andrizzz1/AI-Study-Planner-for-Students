@@ -62,17 +62,20 @@
     <!-- HERO SECTION -->
     <section class="flex max-xl:items-center lg:pt-10 justify-center pb-10 ">
        <!-- Chatbot support -->
-      <div id="Chatbot" class="fixed bottom-0 right-6 h-80 w-64 overflow-y-auto overflow-x-hidden text-center z-20 bg-indigo-600 text-white rounded-t-2xl cursor-pointer hover:bg-indigo-700">
-        <p id="ChatbotText" class="max-md:hidden">Open Chatbot</p>
-        <div id="Openchatbot" class="relative h-100 bg-indigo-50 hidden">
+      <div id="Chatbot" class="fixed bottom-0 right-6 w-72 z-20 bg-indigo-600 text-white rounded-t-2xl cursor-pointer">
+  <p id="ChatbotText" class="text-center py-2 hover:bg-indigo-700 rounded-t-2xl">Open Chatbot</p>
+  
+        <div id="Openchatbot" class="relative h-80 bg-indigo-50 text-black hidden overflow-y-auto overflow-x-hidden">
           
-          <div class=" bottom-0 absolute  w-full ml-1 left-0 flex ">
-              <input id="UserMessage" class="w-[80%] bg-white text-black" type="text" placeholder="hello.....">
-              <button id="Sendbtn" class="bg-indigo-600 text-white px-5 cursor-pointer">Send</button>
+          <div class="pb-10 px-2 flex flex-col gap-1">
           </div>
-          
+
+          <div class="absolute bottom-0 left-0 w-full flex">
+            <input id="UserMessage" class="w-[80%] bg-white text-black px-2 text-sm" type="text" placeholder="hello.....">
+            <button id="Sendbtn" class="bg-indigo-600 text-white px-4 py-2 cursor-pointer text-sm">Send</button>
+          </div>
+
         </div>
-      
       </div>
         <div class="bg-transparent backdrop-blur-md p-8 rounded-3xl max-w-xl text-center ">
 
