@@ -5,25 +5,28 @@ const OpenChatbot = document.getElementById("Openchatbot")
 const ChatbotText = document.getElementById("ChatbotText")
 const User = document.getElementById("UserMessage")
 const SendMess = document.getElementById("Sendbtn")
-
+const MessagesArea = document.getElementById("MessagesArea")
 
 async function sendToAI(msg) {
     try {
         const response = await fetch("/api/chat", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify({ message: msg })
         });
 
+        // ADD THESE DEBUG LINES
+        console.log("Status:", response.status);
         const data = await response.json();
-        console.log("Full response:", JSON.stringify(data, null, 2)); // 👈 check this
+        console.log("Full response:", data);  // see exactly what's coming back
 
-        // Handle error from Groq
-        if (data.error) {
-            return `Error: ${data.error.message}`;
+        if (!response.ok) {
+            return `API Error: ${data.error?.message || response.status}`;
         }
 
-        return data.choices[0].message.content; // This should work for Groq
+        return data.choices[0].message.content;
 
     } catch (error) {
         console.error("Fetch Error:", error);
@@ -32,22 +35,19 @@ async function sendToAI(msg) {
 }
 
 
-
-ChatbotText.addEventListener('click',()=>{
-    OpenChatbot.classList.toggle("hidden")
-    if (ChatbotText.textContent == "Open Chatbot"){
+ChatbotText.addEventListener('click', () => {
+    if (ChatbotText.textContent == "Open Chatbot") {
+        OpenChatbot.classList.replace('hidden', 'flex')
         ChatbotText.textContent = "Close Chatbot"
-
-    }else{
+    } else {
+        OpenChatbot.classList.replace('flex', 'hidden')
         ChatbotText.textContent = "Open Chatbot"
     }
-
 })
 
-HamMenuBtn.addEventListener("click",()=>{
+HamMenuBtn.addEventListener("click", () => {
     MobileNav.classList.toggle("hidden")
 })
-
 UserMsgList = []
 SendMess.addEventListener('click', async ()=>{
     const msg = User.value.trim();
@@ -57,21 +57,21 @@ SendMess.addEventListener('click', async ()=>{
         const newDiv = document.createElement('div')
         newDiv.className = "flex items-center gap-0.5 mt-0.5 justify-end";
         newDiv.innerHTML = `
-        <p class="text-left bg-indigo-600 inline-block mt-0.5 px-1.5 rounded-md">${lastMessage}</p>
+        <p class="text-left bg-indigo-600 inline-block mt-0.5 px-1.5 rounded-md text-xs">${lastMessage}</p>
         <img src="/imgs/UserProfile.jpg" alt="UserProfile" class="w-8 rounded-2xl">
         `;
-        OpenChatbot.querySelector('div').appendChild(newDiv)
+        MessagesArea.appendChild(newDiv) 
 
         const aiReply = await sendToAI(lastMessage);
         const botDiv = document.createElement('div');
-        botDiv.className = "flex items-center gap-0.5 mt-0.5 justify-start";
+        botDiv.className = "flex justify-start items-start";
 
-        botDiv.innerHTML = `
-        <img src="/imgs/BotProfile.png" class="w-8 rounded-2xl">
-        <p class="bg-indigo-600  inline-block px-1.5 rounded-md">${aiReply}</p>
+      botDiv.innerHTML = `
+        <img src="/imgs/BotProfile.png" style="width:32px; height:32px; border-radius:50%; object-fit:cover; flex-shrink:0; margin-top:auto;">
+        <p class="bg-indigo-600 inline-block  rounded-md text-xs">${aiReply}</p>
         `;
 
-        OpenChatbot.querySelector('div').appendChild(botDiv);
+        MessagesArea.appendChild(botDiv);
     }else{
         alert("Empty input")
     }
